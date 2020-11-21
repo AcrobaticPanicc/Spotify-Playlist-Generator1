@@ -1,0 +1,14 @@
+.h1, h1 {
+  color: #1eb854;
+  text-align: center;
+  padding-top: 34px;
+  font-family: Montserrat;
+  font-size: 52px;
+  font-weight: 800;
+  font-style: normal;
+}
+
+#loading-gif {
+  width: 70px;
+  margin-top: 60px;
+}

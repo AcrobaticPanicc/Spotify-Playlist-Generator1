@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <body class="text-break">
+
+        <div class="container text-center">
+            <p>Listen to your new playlist </p>
+        </div>
+
+        <div class="text-center" style="text-align: center;margin: 17px 20% 50px;">
+            <iframe src="https://open.spotify.com/embed/playlist/{{ playlist_id }}" width="300" height="380"
+                    frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+
+        <div class="text-center" style="padding-top: 47px;">
+            <a href="/">Go back home</a>
+        </div>
+
+        <script>
+            window.onSpotifyWebPlaybackSDKReady = () => {
+                // You can now initialize Spotify.Player and use the SDK
+            };
+        </script>
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    </body>
+
+
+{% endblock %}

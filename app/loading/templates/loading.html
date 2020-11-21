@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <body class="text-break">
+        <div class="container text-center hi wait-msg">
+            <p class="alert alert-info">Please wait, we are getting your playlists information</p>
+
+            <div class="container text-center hi loading-circle">
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+        <script type="text/javascript">
+            $.ajax({
+                type: 'POST',
+                url: '/select_tracks',
+                success: function () {
+                    window.location.replace('/select_tracks');
+                }
+            });
+        </script>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+body {
+  background: linear-gradient(149deg, #282828 10%, #c074b2 56%, #8ab5e8 80%) center / cover no-repeat fixed, rgba(249,224,112,0);
+  background-image: linear-gradient(to right top, #d16ba5, #ae609e, #8b5594, #684b87, #464076, #324274, #1c436f, #004368, #00506d, #005d70, #1d6970, #377470);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+

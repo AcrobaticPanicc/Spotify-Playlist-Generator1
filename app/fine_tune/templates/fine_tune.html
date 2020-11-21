@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block content %}
+
+    <body class="text-break" style="background-image: linear-gradient(50deg, #2c5e92 0%, #2d784c 80%);">
+        <div class="container text-center hi">
+            <h2 class="main-p">
+                <p>Great selection!</p>
+                Now, let's fine tune the results
+            </h2>
+        </div>
+
+        <div class="danceability attribute">
+            <div class="container text-center hi">
+                <p>How <span class="w-span">DANCEABLE</span> the playlist should be?</p>
+                <h6 class="greyed">1-Not danceable <span>|</span> 10-Very danceable</h6>
+                <span class="side-numbers">1</span>
+                <label>
+                    <input class="input-values" id="danceability" type="text" data-provide="slider" data-slider-min="1"
+                           data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                </label>
+                <span class="side-numbers">10</span>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="energy attribute">
+            <div class="container text-center hi">
+                <p>How much <span class="w-span">ENERGY</span> the playlist should have?</p>
+                <h6 class="greyed">1-Not energetic <span>|</span> 10-Full power</h6>
+                <span class="side-numbers">1</span>
+                <label>
+                    <input class="input-values" id="energy" type="text" data-provide="slider" data-slider-min="1"
+                           data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                </label>
+                <span class="side-numbers">10</span>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="loudness attribute">
+            <div class="container text-center hi">
+                <p>How <span class="w-span">LOUD</span> the playlist should be?</p>
+                <h6 class="greyed">1-Quiet <span>|</span> 10-LOUD</h6>
+                <span class="side-numbers">1</span>
+                <label>
+                    <input class="input-values" id="loudness" type="text" data-provide="slider" data-slider-min="1"
+                           data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                </label>
+                <span class="side-numbers">10</span>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="popularity attribute">
+            <div class="container text-center hi">
+                <p>How <span class="w-span">POPULAR</span> the tracks in the playlist should be?</p>
+                <h6 class="greyed">1-Not popular <span>|</span> 10-Very popular</h6>
+
+                <span class="side-numbers">1</span>
+                <label>
+                    <input class="input-values" id="popularity" type="text" data-provide="slider" data-slider-min="1"
+                           data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                </label>
+                <span class="side-numbers">10</span>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="text-center next-btn-div">
+            <form action="/your-playlist" method="POST">
+                <input type="hidden" id="tune-values" name="fine-tune-values" value=""/>
+                <a>
+                    <button class="btn next-btn btn-primary" value="submit" id="next-btn" type="submit"
+                            onclick="getFineTune()">
+                        Next
+                    </button>
+                </a>
+            </form>
+        </div>
+    </body>
+
+{% endblock %}

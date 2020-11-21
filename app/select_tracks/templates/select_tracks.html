@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <body class="text-break" style="background-image: linear-gradient(50deg, #2c5e92 0%, #2d784c 80%);">
+
+        <div class="container text-center hi">
+            <p style="font-size: 40px;">
+                Hi {{ user_display_name }}!
+            </p>
+
+            <p>
+                Here is a list of your playlists on Spotify.<br>Click on a playlist to expand it and select the tracks
+                you want to base your
+                recommendation on
+            </p>
+        </div>
+
+
+        <ul class="list-group">
+            {% for playlist in playlists_data %}
+                {% set playlist_id = playlist['playlist_id'] %}
+                {% set playlist_name = playlist['playlist_name'] %}
+                {% set playlist_url = playlist['playlist_url'] %}
+                {% set playlist_img_url = playlist['playlist_img_url'] %}
+                {% set tracks = playlist['playlist_tracks'] %}
+
+                <li data-toggle="collapse" href="#{{ func(playlist_id) }}" data-target="#{{ func(playlist_id) }}"
+                    class="list-group-item list-group-item d-flex justify-content-between align-items-center playlists">
+                    <span>{{ playlist_name }}</span>
+                    <div>
+                        <img src="{{ playlist_img_url }}" style="max-width: 47px;" alt="">
+                    </div>
+                </li>
+
+                <div class="collapse" id="{{ func(playlist_id) }}">
+                    <ul>
+                        {% for track in  tracks %}
+                            <li class="list-group-item list-group-item d-flex justify-content-between align-items-center track"
+                                value="{{ track['track_id'] }}" onclick="addSelectedClass(this)">
+                                <span>{{ track['track_artist'] }} - {{ track['track_name'] }}</span>
+                                <div>
+                                    <img src="{{ track['track_image'] }}" style="max-width: 47px;" alt="">
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </ul>
+
+
+        <div class="text-center next-btn-div">
+            <form action="/fine_tune" method="POST" onsubmit="return validateSelectTracks();">
+                <input type="hidden" id="selected_tracks" name="selected_tracks" value="">
+                <a>
+                    <button class="btn next-btn btn-primary" value="submit" id="next-btn" type="submit"
+                            onclick="getTracks()">
+                        Next
+                    </button>
+                </a>
+            </form>
+        </div>
+    </body>
+
+
+
+{% endblock %}
+
+

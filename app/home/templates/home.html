@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <body>
+        <div class="container text-center hi">
+            <p class="main-p">
+                Discover new music by creating a custom Spotify playlist based on your favourite tracks<br>
+            </p>
+        </div>
+
+        <div class="text-center" style="padding-top: 47px;">
+            <a href="{{ url_for('auth_bp.login') }}">
+                <button class="btn btn-primary" id="login-btn" type="button">
+                    Log in with Spotify
+                </button>
+            </a>
+
+        </div>
+        <p class="greyed">
+            *We are using Spotify's secure login to connect to your account.<br>
+        </p>
+
+
+        <div class="credits">
+            <p class="greyed">
+                Made by <a href="https://www.linkedin.com/in/tomer-chaim/">Tomer</a><br>
+            </p>
+
+            <p class="greyed">
+                Check out my <a href="https://github.com/acrobaticPanicc/">GitHub</a>
+            </p>
+        </div>
+
+
+    </body>
+
+{% endblock %}

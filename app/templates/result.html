@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <body class="text-break">
+        <h1 id="done">
+            DONE! 👏
+        </h1>
+
+        <div class="container text-center">
+            <p>This is the new playlist we created for you based on your selected tracks and preferences</p>
+        </div>
+
+        <ul class="list-group">
+            {% for track in data %}
+                {% set track_id = track["id"] %}
+                {% set artist_name = track["artists"][0]["name"] %}
+                {% set track_name = track["name"] %}
+                {% set track_image_url = track["album"]["images"][2]["url"] %}
+
+                <li class="list-group-item list-group-item d-flex justify-content-between align-items-center track"
+                    value="{{ track_id }}">
+                    <span>{{ artist_name }} - {{ track_name }}</span>
+                    <div>
+                        <img src="{{ track_image_url }}" style="max-width: 47px;" alt="">
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div>
+            <p class="text-center text-white">Give a name to your new playlist:</p>
+        </div>
+
+        <div class="text-center"
+             style="text-align: center;margin: 17px 20% 50px;">
+            <form action="/save-playlist" method="POST">
+                <div class="text-center">
+                    <input type="text" id="playlist_name_input" name="playlist_name" value="">
+                </div>
+                <button class="btn btn-primary" id="save-playlist-btn" type="submit">
+                    Save playlist
+                </button>
+            </form>
+        </div>
+
+
+        <div>
+            <form action="/refresh" method="post">
+                <p class="text-center text-white not-happy">
+                    Not happy with this playlist?
+                    <span>
+                    <a href="/refresh">
+                        Get a new one!
+                    </a>
+                </span>
+                </p>
+            </form>
+        </div>
+    </body>
+
+
+{% endblock %}
