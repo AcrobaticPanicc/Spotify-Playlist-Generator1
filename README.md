@@ -40,7 +40,6 @@ Install the required packages:
 
 You can also visit our [hosted version](https://spotify-playlist-generator1.herokuapp.com/).
 
-### Prerequisites
 
 <!-- CONTRIBUTING -->
 ## Contributing
